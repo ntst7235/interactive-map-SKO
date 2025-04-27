@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Map from './components/Map';
 import VirtualTour from './components/VirtualTour';
+import MapComparison from './components/MapComparison';
 import SearchBar from './components/SearchBar';
 import { useMapState } from './hooks/useMapState';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -21,6 +22,12 @@ function App() {
     moveToMarker,
   } = useMapState();
 
+  const [overlayConfig, setOverlayConfig] = useState({
+    enabled: false,
+    selectedMap: '',
+    opacity: 50
+  });
+
   useEffect(() => {
     document.title = 'Интерактивная карта СКО';
   }, []);
@@ -30,6 +37,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/tour/:id" element={<VirtualTour />} />
+          <Route path="/compare" element={<MapComparison />} />
           <Route
             path="/"
             element={
@@ -52,6 +60,8 @@ function App() {
                     selectedCategories={filters.category}
                     has3DTour={filters.has3DTour}
                     updateFilters={updateFilters}
+                    overlayConfig={overlayConfig}
+                    setOverlayConfig={setOverlayConfig}
                   />
                   
                   <div
@@ -65,6 +75,7 @@ function App() {
                       onSelectSite={selectSite}
                       sidebarOpen={sidebarOpen}
                       toggleSidebar={toggleSidebar}
+                      overlayConfig={overlayConfig}
                     />
                   </div>
                 </div>

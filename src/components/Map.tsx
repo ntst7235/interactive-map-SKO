@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import { Icon } from 'leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, ImageOverlay } from 'react-leaflet';
+import { Icon, LatLngBounds } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { ArchaeologicalSite, MapState } from '../types';
 import SiteDetailPanel from './SiteDetailPanel';
@@ -13,6 +13,11 @@ interface MapProps {
   onSelectSite: (site: ArchaeologicalSite | null) => void;
   sidebarOpen: boolean;
   toggleSidebar: (forcedState?: boolean) => void;
+  overlayConfig: {
+    enabled: boolean;
+    selectedMap: string;
+    opacity: number;
+  };
 }
 
 const defaultIcon = new Icon({
@@ -68,11 +73,23 @@ const MapController: React.FC<{
   return null;
 };
 
-const Map: React.FC<MapProps> = ({ mapState, sites, onSelectSite, sidebarOpen, toggleSidebar }) => {
+const Map: React.FC<MapProps> = ({ 
+  mapState, 
+  sites, 
+  onSelectSite, 
+  sidebarOpen, 
+  toggleSidebar,
+  overlayConfig 
+}) => {
   const [currentLayer, setCurrentLayer] = useState('default');
   const [isMapReady, setIsMapReady] = useState(false);
   const markerRefs = useRef<{ [key: string]: any }>({});
   const { theme } = useTheme();
+
+  const overlayBounds: LatLngBounds = new LatLngBounds(
+    [51.538597, 64.347327],
+    [55.784217, 72.030899]
+  );
 
   useEffect(() => {
     if (mapState.selectedSite && markerRefs.current[mapState.selectedSite.id]) {
@@ -132,6 +149,14 @@ const Map: React.FC<MapProps> = ({ mapState, sites, onSelectSite, sidebarOpen, t
           url={layers[currentLayer as keyof typeof layers].url}
           attribution={layers[currentLayer as keyof typeof layers].attribution}
         />
+        
+        {overlayConfig.enabled && overlayConfig.selectedMap === 'historical' && (
+          <ImageOverlay
+            url="/historical-maps/petropavlovskiy-uezd-1912.jpg"
+            bounds={overlayBounds}
+            opacity={overlayConfig.opacity / 100}
+          />
+        )}
         
         <MapController 
           center={mapState.center} 

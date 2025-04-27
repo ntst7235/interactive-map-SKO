@@ -41,12 +41,12 @@ body {
 }
 
 .dark .leaflet-popup-content-wrapper {
-  background-color: #27272a; /* zinc-800 */
-  color: #fafafa; /* zinc-50 */
+  background-color: #27272a;
+  color: #fafafa;
 }
 
 .dark .leaflet-popup-tip {
-  background-color: #27272a; /* zinc-800 */
+  background-color: #27272a;
 }
 
 .leaflet-popup-content {
@@ -58,7 +58,6 @@ body {
   z-index: 1;
 }
 
-/* Layer Switcher styles */
 .layer-switcher {
   position: absolute;
   bottom: 24px;
@@ -104,7 +103,6 @@ body {
   animation: modalFadeIn 0.3s ease-out forwards;
 }
 
-/* Custom scrollbar styles */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
@@ -121,7 +119,7 @@ body {
 }
 
 .dark .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #52525b; /* zinc-600 */
+  background: #52525b;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
@@ -129,20 +127,18 @@ body {
 }
 
 .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #71717a; /* zinc-500 */
+  background: #71717a;
 }
 
-/* Firefox scrollbar styles */
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #d1d5db transparent;
 }
 
 .dark .custom-scrollbar {
-  scrollbar-color: #52525b transparent; /* zinc-600 */
+  scrollbar-color: #52525b transparent;
 }
 
-/* Swiper customization */
 .swiper-button-next,
 .swiper-button-prev {
   color: white !important;
@@ -158,7 +154,20 @@ body {
   opacity: 1 !important;
 }
 
-/* Layer Switcher Preview Map */
 .leaflet-control-container {
   display: none;
+}
+
+/* Map comparison styles */
+.custom-cursor {
+  color: #ef4444;
+  font-size: 20px;
+  font-weight: bold;
+  pointer-events: none;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  background: transparent !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
