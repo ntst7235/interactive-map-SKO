@@ -1,0 +1,39 @@
+[
+    {
+        "id": 621,
+        "name": "Место захоронения Кожаберген жырау (1663—1762 годы)",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Место захоронения Кожаберген жырау (1663—1762 годы)",
+                "image": "/panoramas/pano510_panorama.jpg",
+                "hotspots": [
+                    {
+                        "type": "panorama",
+                        "id": "next",
+                        "targetPanorama": "next",
+                        "pitch": 0,
+                        "yaw": 30,
+                        "text": "Go to next"
+                    }
+                ]
+            },
+            "next": {
+                "id": "next",
+                "name": "Место захоронения Кожаберген жырау (1663—1762 годы)",
+                "image": "/panoramas/pano511_panorama.jpg",
+                "hotspots": [
+                    {
+                        "type": "panorama",
+                        "id": "start",
+                        "targetPanorama": "start",
+                        "pitch": 0,
+                        "yaw": 30,
+                        "text": "Go to start"
+                    }
+                ]
+            }
+        }
+    }
+]

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="15mm" height="15mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 1500 1500"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
+ sodipodi:role="line"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:cc="http://creativecommons.org/ns#"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:svg="http://www.w3.org/2000/svg"
+ xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+ xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+ inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+ sodipodi:docname="skyrim_quest_markers_v0.1.svg">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil2 {fill:none}
+    .fil0 {fill:black}
+    .fil1 {fill:white}
+   ]]>
+  </style>
+ </defs>
+ <g id="Слой_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.70710678" inkscape:cx="1167.6418" inkscape:cy="498.19416" inkscape:document-units="mm" inkscape:current-layer="layer7" showgrid="false" inkscape:window-width="1920" inkscape:window-height="1020" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1" inkscape:snap-intersection-paths="true" inkscape:snap-smooth-nodes="false" inkscape:object-paths="false" inkscape:snap-object-midpoints="true" inkscape:object-nodes="true" inkscape:snap-center="true" showguides="false" units="in" inkscape:snap-midpoints="true" inkscape:snap-text-baseline="true" inkscape:measure-start="27.0871,895.384" inkscape:measure-end="27.0871,7.38431"/>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.70710678" inkscape:cx="1167.6418" inkscape:cy="498.19416" inkscape:document-units="mm" inkscape:current-layer="layer7" showgrid="false" inkscape:window-width="1920" inkscape:window-height="1020" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1" inkscape:snap-intersection-paths="true" inkscape:snap-smooth-nodes="false" inkscape:object-paths="false" inkscape:snap-object-midpoints="true" inkscape:object-nodes="true" inkscape:snap-center="true" showguides="false" units="in" inkscape:snap-midpoints="true" inkscape:snap-text-baseline="true" inkscape:measure-start="27.0871,895.384" inkscape:measure-end="27.0871,7.38431"/>
+  <g id="_2937527920384">
+   <g>
+    <polygon class="fil0" points="716.61,1526.35 331.79,1293.49 332.04,1150.89 311.61,1177.44 169.28,962.87 559.61,327.74 474.04,236.88 616.49,26.72 728.55,128.47 831.29,26.35 973.74,236.51 888.17,327.36 1278.5,962.49 1136.17,1177.07 1115.74,1150.52 1115.99,1293.12 "/>
+    <path class="fil1" d="M716.61 1426.29l-312.93 -189.34 0.73 -297.5 -85.94 99.22 -60.92 -91.69 393.22 -646.1 -82.67 -86.22 58.38 -88.82 101.31 92.19 93.51 -92.56 65.09 94.23 -89.38 80.81 393.22 646.1 -60.92 91.69 -85.94 -99.22 0.73 297.5 -327.49 189.71zm-86.75 -232.75l190.31 0 -40.67 -322.04 -104.12 -7.84 -45.52 329.88z"/>
+   </g>
+   <rect class="fil2" x="-26.12" y="25.87" width="1500" height="1500"/>
+  </g>
+ </g>
+</svg>
