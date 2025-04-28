@@ -15,11 +15,11 @@ const LayerSwitcher: React.FC<LayerSwitcherProps> = ({ currentLayer, onLayerChan
   const layers = {
     default: {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      label: 'Map'
+      label: 'Карта'
     },
     satellite: {
       url: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
-      label: 'Satellite'
+      label: 'Спутник'
     }
   };
 

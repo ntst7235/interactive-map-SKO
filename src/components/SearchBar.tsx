@@ -67,7 +67,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           type="text"
           value={searchQuery}
           onChange={(e) => onSearch(e.target.value)}
-          placeholder="Search archaeological sites..."
+          placeholder="Найти место..."
           className="w-full py-3 pl-12 pr-4 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-md shadow-lg border-0 focus:outline-none focus:ring-2 focus:ring-amber-500 transition duration-150"
         />
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">

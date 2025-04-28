@@ -123,7 +123,7 @@ const MapComparison: React.FC = () => {
           className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors"
         >
           <ArrowLeft size={20} />
-          Return to Map
+          Вернуться на карту
         </button>
       </div>
 

@@ -104,19 +104,19 @@ export const siteData: ArchaeologicalSite[] = [
 ];
 
 export const eras: string[] = [
-  'Stone Age',
-  'Bronze Age',
-  'Iron Age',
-  'Roman',
-  'Medieval',
-  'Modern'
+  'Каменный век',
+  'Бронзовый век',
+  'Железный век',
+  'Римская эпоха',
+  'Средневековье',
+  'Современность'
 ];
 
 export const categories: string[] = [
-  'Settlement',
-  'Burial',
-  'Artifact',
-  'Fortress',
-  'Religious',
-  'Other'
+  'Поселения',
+  'Захоронения',
+  'Артифакты',
+  'Крепости',
+  'Религиозные',
+  'Остальное'
 ];

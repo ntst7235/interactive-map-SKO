@@ -134,11 +134,11 @@ const Sidebar: React.FC<SidebarProps> = ({
           <div className="p-6 w-80 h-full overflow-y-auto custom-scrollbar">
             {activeSection === 'filters' ? (
               <>
-                <h2 className="text-xl font-semibold text-zinc-800 dark:text-zinc-200 mb-6">Filters</h2>
+                <h2 className="text-xl font-semibold text-zinc-800 dark:text-zinc-200 mb-6">Доступные фильтры</h2>
 
                 <div className="space-y-8">
                   <div>
-                    <h3 className="text-lg font-medium mb-3 text-zinc-800 dark:text-zinc-200">Eras</h3>
+                    <h3 className="text-lg font-medium mb-3 text-zinc-800 dark:text-zinc-200">Эры:</h3>
                     <div className="space-y-2">
                       {eras.map(era => (
                         <label key={era} className="flex items-center space-x-2 cursor-pointer">
@@ -155,7 +155,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-medium mb-3 text-zinc-800 dark:text-zinc-200">Categories</h3>
+                    <h3 className="text-lg font-medium mb-3 text-zinc-800 dark:text-zinc-200">Категории:</h3>
                     <div className="space-y-2">
                       {categories.map(category => (
                         <label key={category} className="flex items-center space-x-2 cursor-pointer">
@@ -172,7 +172,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-medium mb-3 text-zinc-800 dark:text-zinc-200">Tags</h3>
+                    <h3 className="text-lg font-medium mb-3 text-zinc-800 dark:text-zinc-200">Тэги:</h3>
                     <div className="space-y-2">
                       <label className="flex items-center space-x-2 cursor-pointer">
                         <input
@@ -181,7 +181,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                           onChange={handle3DTourChange}
                           className="rounded text-amber-600 focus:ring-amber-500 dark:bg-zinc-700 dark:border-zinc-600"
                         />
-                        <span className="text-zinc-700 dark:text-zinc-300">Has 3D Tour</span>
+                        <span className="text-zinc-700 dark:text-zinc-300">Есть 3D-тур</span>
                       </label>
                     </div>
                   </div>
@@ -189,11 +189,11 @@ const Sidebar: React.FC<SidebarProps> = ({
               </>
             ) : (
               <>
-                <h2 className="text-xl font-semibold text-zinc-800 dark:text-zinc-200 mb-6">Map Comparison</h2>
+                <h2 className="text-xl font-semibold text-zinc-800 dark:text-zinc-200 mb-6">Сравнение карт</h2>
                 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-medium mb-3 text-zinc-800 dark:text-zinc-200">Available Maps</h3>
+                    <h3 className="text-lg font-medium mb-3 text-zinc-800 dark:text-zinc-200">Доступные карты:</h3>
                     <div className="space-y-2">
                       <label className="flex items-center space-x-2 cursor-pointer">
                         <input
@@ -203,7 +203,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                           onChange={() => handleMapSelect('historical')}
                           className="text-amber-600 focus:ring-amber-500 dark:bg-zinc-700 dark:border-zinc-600"
                         />
-                        <span className="text-zinc-700 dark:text-zinc-300">Historical Map (1900)</span>
+                        <span className="text-zinc-700 dark:text-zinc-300">Карта Петропавловского уезда 1912 г.</span>
                       </label>
                     </div>
                   </div>
@@ -216,14 +216,14 @@ const Sidebar: React.FC<SidebarProps> = ({
                         onChange={(e) => handleOverlayToggle(e.target.checked)}
                         className="rounded text-amber-600 focus:ring-amber-500 dark:bg-zinc-700 dark:border-zinc-600"
                       />
-                      <span className="text-zinc-700 dark:text-zinc-300">Enable Overlay</span>
+                      <span className="text-zinc-700 dark:text-zinc-300">Включить наложение</span>
                     </label>
                   </div>
 
                   {overlayConfig.enabled && (
                     <div className="space-y-2">
                       <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                        Transparency
+                        Прозрачность
                       </label>
                       <input
                         type="range"
@@ -243,7 +243,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     onClick={handleCompare}
                     className="w-full py-2 px-4 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
                   >
-                    Compare Maps
+                    Сравнить карты
                   </button>
                 </div>
               </>

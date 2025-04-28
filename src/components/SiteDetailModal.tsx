@@ -91,14 +91,14 @@ const SiteDetailModal: React.FC<SiteDetailModalProps> = ({ site, onClose, toggle
                     className="px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-medium flex items-center gap-1 hover:bg-blue-700 transition-colors"
                   >
                     <Cube size={16} />
-                    Start 3D Tour
+                    Начать 3D-тур
                   </button>
                 )}
               </div>
 
               <div className="space-y-6">
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Description</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Описание</h2>
                   <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
                     {site.description}
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -106,31 +106,31 @@ const SiteDetailModal: React.FC<SiteDetailModalProps> = ({ site, onClose, toggle
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Location</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Локация</h2>
                   <div className="bg-zinc-50 dark:bg-zinc-700 p-4 rounded-lg">
                     <p className="text-zinc-600 dark:text-zinc-400 mb-2">
-                      <strong className="text-zinc-800 dark:text-zinc-200">Region:</strong> Greater London, United Kingdom
+                      <strong className="text-zinc-800 dark:text-zinc-200">Регион:</strong> Greater London, United Kingdom
                     </p>
                     <p className="text-zinc-600 dark:text-zinc-400 mb-2">
-                      <strong className="text-zinc-800 dark:text-zinc-200">Coordinates:</strong><br />
-                      Latitude: {site.coordinates[0].toFixed(6)}<br />
-                      Longitude: {site.coordinates[1].toFixed(6)}
+                      <strong className="text-zinc-800 dark:text-zinc-200">Координаты:</strong><br />
+                      Широта: {site.coordinates[0].toFixed(6)}<br />
+                      Долгота: {site.coordinates[1].toFixed(6)}
                     </p>
                     <p className="text-zinc-600 dark:text-zinc-400">
-                      <strong className="text-zinc-800 dark:text-zinc-200">Access:</strong> Public access via marked footpath
+                      <strong className="text-zinc-800 dark:text-zinc-200">Доступ:</strong> Public access via marked footpath
                     </p>
                   </div>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Historical Context</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Историческая справка</h2>
                   <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
                     This site represents a significant example of {site.era.toLowerCase()} architecture and settlement patterns. Archaeological evidence suggests continuous occupation from approximately 800 BCE to 400 CE.
                   </p>
                 </section>
 
                 <section>
-                  <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Conservation Status</h2>
+                  <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Охранный статус</h2>
                   <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
                     Protected as a Scheduled Ancient Monument. Regular maintenance is carried out by English Heritage.
                   </p>
@@ -159,7 +159,7 @@ const SiteDetailModal: React.FC<SiteDetailModalProps> = ({ site, onClose, toggle
               </div>
 
               <div className="bg-white dark:bg-zinc-800 rounded-lg shadow-lg p-6 mb-8">
-                <h2 className="text-xl font-semibold mb-4 text-zinc-800 dark:text-zinc-200">Key Features</h2>
+                <h2 className="text-xl font-semibold mb-4 text-zinc-800 dark:text-zinc-200">Ключевые особенности</h2>
                 <ul className="list-disc list-inside space-y-2 text-zinc-600 dark:text-zinc-400">
                   <li>Original {site.era.toLowerCase()} architectural elements</li>
                   <li>Well-preserved defensive structures</li>
@@ -170,13 +170,13 @@ const SiteDetailModal: React.FC<SiteDetailModalProps> = ({ site, onClose, toggle
               </div>
 
               <div className="bg-white dark:bg-zinc-800 rounded-lg shadow-lg p-6">
-                <h2 className="text-xl font-semibold mb-4 text-zinc-800 dark:text-zinc-200">Visiting Information</h2>
+                <h2 className="text-xl font-semibold mb-4 text-zinc-800 dark:text-zinc-200">Информация для посетителей</h2>
                 <div className="space-y-3 text-zinc-600 dark:text-zinc-400">
-                  <p><strong className="text-zinc-800 dark:text-zinc-200">Opening Hours:</strong> Dawn to dusk</p>
-                  <p><strong className="text-zinc-800 dark:text-zinc-200">Admission:</strong> Free</p>
-                  <p><strong className="text-zinc-800 dark:text-zinc-200">Facilities:</strong> Parking, Information boards</p>
-                  <p><strong className="text-zinc-800 dark:text-zinc-200">Best time to visit:</strong> Spring and Summer months</p>
-                  <p><strong className="text-zinc-800 dark:text-zinc-200">Accessibility:</strong> Moderate - some uneven terrain</p>
+                  <p><strong className="text-zinc-800 dark:text-zinc-200">Часы работы:</strong> Dawn to dusk</p>
+                  <p><strong className="text-zinc-800 dark:text-zinc-200">Доступ:</strong> Free</p>
+                  <p><strong className="text-zinc-800 dark:text-zinc-200">Удобства:</strong> Parking, Information boards</p>
+                  <p><strong className="text-zinc-800 dark:text-zinc-200">Лучшее время для посещения:</strong> Spring and Summer months</p>
+                  <p><strong className="text-zinc-800 dark:text-zinc-200">Доступность:</strong> Moderate - some uneven terrain</p>
                 </div>
               </div>
             </div>

@@ -64,10 +64,10 @@ const SiteDetailPanel: React.FC<SiteDetailPanelProps> = ({ site, onClose, toggle
           <p className="text-zinc-700 dark:text-zinc-300 mb-4 text-sm leading-relaxed">{site.description}</p>
           
           <div className="border-t border-zinc-200 dark:border-zinc-700 pt-3">
-            <h3 className="font-medium mb-2 text-zinc-900 dark:text-zinc-100">Location</h3>
+            <h3 className="font-medium mb-2 text-zinc-900 dark:text-zinc-100">Локация:</h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              Latitude: {site.coordinates[0].toFixed(4)}<br />
-              Longitude: {site.coordinates[1].toFixed(4)}
+              Широта: {site.coordinates[0].toFixed(4)}<br />
+              Долгота: {site.coordinates[1].toFixed(4)}
             </p>
           </div>
           
@@ -76,7 +76,7 @@ const SiteDetailPanel: React.FC<SiteDetailPanelProps> = ({ site, onClose, toggle
               onClick={() => setIsModalOpen(true)}
               className="text-amber-600 hover:text-amber-800 dark:text-amber-500 dark:hover:text-amber-400 text-sm font-medium transition-colors"
             >
-              View Full Details
+              Посмотреть полную информацию
             </button>
           </div>
         </div>

@@ -127,7 +127,7 @@ const VirtualTour: React.FC = () => {
           className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg flex items-center gap-2 backdrop-blur-sm transition-colors"
         >
           <ArrowLeft size={20} />
-          Return to Map
+          Вернуться на карту
         </button>
         <h1 className="text-white text-xl font-semibold">
           {location.name} - {currentScene.name}
