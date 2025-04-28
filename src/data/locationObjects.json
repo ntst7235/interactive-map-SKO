@@ -2186,7 +2186,7 @@
       "lng": 69.50125999740524
     },
     "icon": "SR-mapicon-Shrine.svg",
-    "has3DTour": false
+    "has3DTour": true
   },
   {
     "id": 200,
@@ -3011,7 +3011,7 @@
       "lng": 69.14665698419665
     },
     "icon": "SR-mapicon-Shrine.svg",
-    "has3DTour": false
+    "has3DTour": true
   },
   {
     "id": 275,
@@ -4870,7 +4870,7 @@
       "lng": 68.88616662240479
     },
     "icon": "SR-mapicon-Shrine.svg",
-    "has3DTour": false
+    "has3DTour": true
   },
   {
     "id": 444,
@@ -5123,7 +5123,7 @@
       "lng": 68.390708
     },
     "icon": "SR-mapicon-Shrine.svg",
-    "has3DTour": false
+    "has3DTour": true
   },
   {
     "id": 467,
@@ -5475,7 +5475,7 @@
       "lng": 68.00249643361775
     },
     "icon": "SR-mapicon-Town.svg",
-    "has3DTour": false
+    "has3DTour": true
   },
   {
     "id": 499,
@@ -6135,7 +6135,7 @@
       "lng": 67.533848
     },
     "icon": "SR-mapicon-Nordic_Dwelling.svg",
-    "has3DTour": false
+    "has3DTour": true
   },
   {
     "id": 559,
@@ -6630,7 +6630,7 @@
       "lng": 67.1374984888488
     },
     "icon": "SR-mapicon-Landmark.svg",
-    "has3DTour": false
+    "has3DTour": true
   },
   {
     "id": 604,
@@ -6641,7 +6641,7 @@
       "lng": 67.13691500648113
     },
     "icon": "SR-mapicon-Shack.svg",
-    "has3DTour": false
+    "has3DTour": true
   },
   {
     "id": 605,
@@ -7719,7 +7719,7 @@
       "lng": 66.4867390051752
     },
     "icon": "SR-mapicon-Shrine.svg",
-    "has3DTour": false
+    "has3DTour": true
   },
   {
     "id": 703,
@@ -7862,7 +7862,7 @@
       "lng": 66.27407389553825
     },
     "icon": "SR-mapicon-Shrine.svg",
-    "has3DTour": false
+    "has3DTour": true
   },
   {
     "id": 716,

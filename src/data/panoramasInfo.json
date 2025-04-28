@@ -7,7 +7,7 @@
             "start": {
                 "id": "start",
                 "name": "Место захоронения Кожаберген жырау (1663—1762 годы)",
-                "image": "/panoramas/pano510_panorama.jpg",
+                "image": "/panoramas/kozhabergen1_510.jpg",
                 "hotspots": [
                     {
                         "type": "panorama",
@@ -22,7 +22,7 @@
             "next": {
                 "id": "next",
                 "name": "Место захоронения Кожаберген жырау (1663—1762 годы)",
-                "image": "/panoramas/pano511_panorama.jpg",
+                "image": "/panoramas/kozhabergen1_511.jpg",
                 "hotspots": [
                     {
                         "type": "panorama",
@@ -32,6 +32,170 @@
                         "yaw": 30,
                         "text": "Go to start"
                     }
+                ]
+            }
+        }
+    },
+    {
+        "id": 498,
+        "name": "Усадьба Сырымбет",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Усадьба Сырымбет",
+                "image": "/panoramas/sar1_512.jpg",
+                "hotspots": [
+                ]
+            }
+        }
+    },
+    {
+        "id": 466,
+        "name": "Захоронение Кулсары батыра",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Захоронение Кулсары батыра",
+                "image": "/panoramas/kulsary1_510.jpg",
+                "hotspots": [
+
+                ]
+            }
+        }
+    },
+    {
+        "id": 558,
+        "name": "Поселение Ботай",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Поселение Ботай",
+                "image": "/panoramas/botai1_526.jpg",
+                "hotspots": [
+
+                ]
+            }
+        }
+    },
+    {
+        "id": 274,
+        "name": "Церковь Всех Святых",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Церковь Всех Святых",
+                "image": "/panoramas/pano_369.jpg",
+                "hotspots": [
+
+                ]
+            }
+        }
+    },
+    {
+        "id": 715,
+        "name": "Архистратиго-Михайловский женский монастырь",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Архистратиго-Михайловский женский монастырь",
+                "image": "/panoramas/monastyr1_537.jpg",
+                "hotspots": [
+
+                ]
+            }
+        }
+    },
+    {
+        "id": 276,
+        "name": "Памятник Кенесары хану",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Памятник Кенесары хану",
+                "image": "/panoramas/pano_371.jpg",
+                "hotspots": [
+
+                ]
+            }
+        }
+    },
+    {
+        "id": 199,
+        "name": "Городище Долматовское («Ак-Ирий»)",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Городище Долматовское («Ак-Ирий»)",
+                "image": "/panoramas/akiriy1_559.jpg",
+                "hotspots": [
+
+                ]
+            }
+        }
+    },
+    {
+        "id": 443,
+        "name": "Алтарь «Звезда Казахстана»",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Алтарь «Звезда Казахстана»",
+                "image": "/panoramas/altar_kz_star_559.jpg",
+                "hotspots": [
+
+                ]
+            }
+        }
+    },
+    {
+        "id": 702,
+        "name": "Захоронение Улпан",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Захоронение Улпан",
+                "image": "/panoramas/ulpan_559.jpg",
+                "hotspots": [
+
+                ]
+            }
+        }
+    },
+    {
+        "id": 603,
+        "name": "Бюст писателя И. Шухова",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Бюст писателя И. Шухова",
+                "image": "/panoramas/shuhov_bust_559.jpg",
+                "hotspots": [
+
+                ]
+            }
+        }
+    },
+    {
+        "id": 604,
+        "name": "Дом писателя И. Шухова",
+        "initialPanorama": "start",
+        "panoramas": {
+            "start": {
+                "id": "start",
+                "name": "Дом писателя И. Шухова",
+                "image": "/panoramas/shuhov_560.jpg",
+                "hotspots": [
+
                 ]
             }
         }
