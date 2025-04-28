@@ -15,10 +15,10 @@ export const getEnrichedLocations = async () => {
     // Enrich the data with additional fields
     return locations.map(location => ({
       ...location,
-      era: 'Unknown', // Placeholder for future categorization
-      category: 'Unknown', // Placeholder for future categorization
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      image: PLACEHOLDER_IMAGE,
+      era: location.era || 'Unknown', // Placeholder for future categorization
+      category: location.category || 'Unknown', // Placeholder for future categorization
+      description: location.description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      image: location.image || PLACEHOLDER_IMAGE,
       // has3DTour: location.has3DTour || false,
       features: [
         'Original architectural elements',
@@ -26,7 +26,7 @@ export const getEnrichedLocations = async () => {
         'Archaeological evidence',
         'Cultural significance'
       ],
-      historicalContext: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      historicalContext: location.historicalContext || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       visitingInfo: {
         openingHours: 'Dawn to dusk',
         admission: 'Free',

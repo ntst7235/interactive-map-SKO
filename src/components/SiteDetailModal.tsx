@@ -100,8 +100,7 @@ const SiteDetailModal: React.FC<SiteDetailModalProps> = ({ site, onClose, toggle
                 <section>
                   <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Описание</h2>
                   <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    {site.description}
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    {site.description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}
                   </p>
                 </section>
 
@@ -125,7 +124,7 @@ const SiteDetailModal: React.FC<SiteDetailModalProps> = ({ site, onClose, toggle
                 <section>
                   <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Историческая справка</h2>
                   <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    This site represents a significant example of {site.era.toLowerCase()} architecture and settlement patterns. Archaeological evidence suggests continuous occupation from approximately 800 BCE to 400 CE.
+                    {site.historicalContext || 'This site has a rich history dating back to the early period. It was primarily used for activities, and archaeological excavations have revealed numerous artifacts and structures that provide insight into the lives of the people who inhabited this area.'}
                   </p>
                 </section>
 

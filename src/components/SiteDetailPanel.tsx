@@ -59,6 +59,9 @@ const SiteDetailPanel: React.FC<SiteDetailPanelProps> = ({ site, onClose, toggle
             <span className="px-2 py-1 bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-100 rounded-md text-xs font-medium">
               {site.category}
             </span>
+            {site.has3DTour 
+              ? (<span className="px-2 py-1 bg-blue-600 text-white rounded-md text-xs font-medium">Есть 3D-тур</span>)
+              : (<span className="px-2 py-1 bg-blue-900 text-white rounded-md text-xs font-medium">Нет 3D-тура</span>)}
           </div>
           
           <p className="text-zinc-700 dark:text-zinc-300 mb-4 text-sm leading-relaxed">{site.description}</p>

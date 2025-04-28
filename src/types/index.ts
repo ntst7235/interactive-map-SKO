@@ -5,15 +5,16 @@ export interface ArchaeologicalSite {
   era: Era;
   category: Category;
   description: string;
+  historicalContext: string;
   coordinates: [number, number]; // [latitude, longitude]
   image?: string; // URL to image
   images?: string[]; // Array of image URLs
   has3DTour?: boolean;
 }
 
-export type Era = 'Stone Age' | 'Bronze Age' | 'Iron Age' | 'Roman' | 'Medieval' | 'Modern';
+export type Era = 'Каменный век' | 'Бронзовый век' | 'Железный век' | 'Римская эпоха' | 'Средневековье' | 'Современность';
 
-export type Category = 'Settlement' | 'Burial' | 'Artifact' | 'Fortress' | 'Religious' | 'Other';
+export type Category = 'Поселения' | 'Захоронения' | 'Артефакты' | 'Крепости' | 'Религиозные' | 'Остальное';
 
 export interface MapState {
   center: [number, number];
