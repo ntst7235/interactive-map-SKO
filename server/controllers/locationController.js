@@ -1,6 +1,7 @@
 import Location from '../models/Location.js';
 import Category from '../models/Category.js';
 import Era from '../models/Era.js';
+import Panorama from '../models/Panorama.js';
 
 export const getAllLocations = async (req, res) => {
   try {
@@ -75,5 +76,21 @@ export const getLocationById = async (req, res) => {
   } catch (error) {
     console.error('Error fetching location:', error);
     res.status(500).json({ error: 'Failed to fetch location' });
+  }
+};
+
+export const getLocationPanorama = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const location = await Location.findById(id).populate('panoramaId');
+    
+    if (!location || !location.panoramaId) {
+      return res.status(404).json({ error: 'Panorama not found for this location' });
+    }
+    
+    res.json(location.panoramaId);
+  } catch (error) {
+    console.error('Error fetching panorama:', error);
+    res.status(500).json({ error: 'Failed to fetch panorama' });
   }
 };

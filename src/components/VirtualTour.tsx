@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { X, ArrowLeft } from 'lucide-react';
 import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
 import { CubemapAdapter } from "@photo-sphere-viewer/cubemap-adapter";
-import panoramasInfo from '../data/panoramasInfo.json';
 
 interface Location {
   id: string;
@@ -16,40 +15,66 @@ interface Location {
   has3DTour?: boolean;
 }
 
+interface Panorama {
+  name: string;
+  initialPanorama: string;
+  scenes: {
+    id: string;
+    name: string;
+    image: string;
+    hotspots: {
+      type: 'panorama' | 'image';
+      id: string;
+      targetPanorama: string;
+      pitch?: number;
+      yaw?: number;
+      text?: string;
+      image?: string;
+    }[];
+  }[];
+}
+
 const VirtualTour: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [currentPanorama, setCurrentPanorama] = useState('');
+  const [currentPanorama, setCurrentPanorama] = useState<string>('');
   const [imageModalUrl, setImageModalUrl] = useState<string | null>(null);
   const [location, setLocation] = useState<Location | null>(null);
+  const [panoramaData, setPanoramaData] = useState<Panorama | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchLocation = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch(`/api/locations/${id}`);
-        if (!response.ok) {
+        setLoading(true);
+        setError(null);
+
+        // Fetch location data
+        const locationResponse = await fetch(`/api/locations/${id}`);
+        if (!locationResponse.ok) {
           throw new Error('Location not found');
         }
-        const data = await response.json();
-        setLocation(data);
+        const locationData = await locationResponse.json();
+        setLocation(locationData);
+
+        // Fetch panorama data
+        const panoramaResponse = await fetch(`/api/locations/${id}/panorama`);
+        if (!panoramaResponse.ok) {
+          throw new Error('Panorama not found');
+        }
+        const panoramaData = await panoramaResponse.json();
+        setPanoramaData(panoramaData);
+        setCurrentPanorama(panoramaData.initialPanorama);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load location');
+        setError(err instanceof Error ? err.message : 'Failed to load tour data');
       } finally {
         setLoading(false);
       }
     };
 
     if (id) {
-      fetchLocation();
-    }
-  }, [id]);
-
-  useEffect(() => {
-    const tour = panoramasInfo.find(p => p.id.toString() === id);
-    if (tour) {
-      setCurrentPanorama(tour.initialPanorama);
+      fetchData();
     }
   }, [id]);
 
@@ -63,7 +88,7 @@ const VirtualTour: React.FC = () => {
     );
   }
 
-  if (error || !location) {
+  if (error || !location || !panoramaData) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <div className="text-center">
@@ -82,12 +107,12 @@ const VirtualTour: React.FC = () => {
     );
   }
 
-  const tour = panoramasInfo.find(p => p.id.toString() === id);
-  if (!tour) {
+  const currentScene = panoramaData.scenes.find(scene => scene.id === currentPanorama);
+  if (!currentScene) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Tour data not found</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Scene not found</h2>
           <button
             onClick={() => navigate('/')}
             className="text-amber-600 hover:text-amber-800 flex items-center gap-2"
@@ -95,17 +120,6 @@ const VirtualTour: React.FC = () => {
             <ArrowLeft size={20} />
             Return to Map
           </button>
-        </div>
-      </div>
-    );
-  }
-
-  const currentScene = currentPanorama && tour.panoramas[currentPanorama];
-  if (!currentScene) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Loading scene...</h2>
         </div>
       </div>
     );
@@ -151,26 +165,26 @@ const VirtualTour: React.FC = () => {
           defaultZoomLvl={0}
           littlePlanet={false}
           plugins={[]}
-          // markers={currentScene.hotspots.map(hotspot => ({
-          //   id: hotspot.id,
-          //   longitude: hotspot.yaw * (Math.PI / 180),
-          //   latitude: hotspot.pitch * (Math.PI / 180),
-          //   html: hotspot.text,
-          //   style: {
-          //     color: 'white',
-          //     backgroundColor: hotspot.type === 'panorama' ? '#2563eb' : '#d97706',
-          //     padding: '5px 10px',
-          //     borderRadius: '20px',
-          //     cursor: 'pointer'
-          //   },
-          //   content: hotspot.text,
-          //   data: hotspot
-          // }))}
-          // onClick={(_, marker) => {
-          //   if (marker) {
-          //     handleHotspotClick(marker.data);
-          //   }
-          // }}
+          markers={currentScene.hotspots.map(hotspot => ({
+            id: hotspot.id,
+            longitude: (hotspot.yaw || 0) * (Math.PI / 180),
+            latitude: (hotspot.pitch || 0) * (Math.PI / 180),
+            html: hotspot.text,
+            style: {
+              color: 'white',
+              backgroundColor: hotspot.type === 'panorama' ? '#2563eb' : '#d97706',
+              padding: '5px 10px',
+              borderRadius: '20px',
+              cursor: 'pointer'
+            },
+            content: hotspot.text,
+            data: hotspot
+          }))}
+          onClick={(_, marker) => {
+            if (marker) {
+              handleHotspotClick(marker.data);
+            }
+          }}
         />
       </div>
 
