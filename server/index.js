@@ -2,9 +2,16 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import locationsRouter from './routes/locations.js';
+
+// Import all models to ensure schemas are registered
+import './models/Location.js';
+import './models/Category.js';
+import './models/Era.js';
+import './models/Panorama.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -12,6 +19,11 @@ const __dirname = dirname(__filename);
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 // Middleware
 app.use(cors());

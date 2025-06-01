@@ -1,21 +1,45 @@
-import { getEnrichedLocations } from '../services/locationService.js';
+import Location from '../models/Location.js';
+import Category from '../models/Category.js';
+import Era from '../models/Era.js';
 
 export const getAllLocations = async (req, res) => {
   try {
     const { era, category } = req.query;
-    const locations = await getEnrichedLocations();
     
-    let filteredLocations = locations;
-    
+    const query = {};
     if (era) {
-      filteredLocations = filteredLocations.filter(loc => loc.era === era);
+      const eraDoc = await Era.findOne({ name: era });
+      if (eraDoc) {
+        query.eraId = eraDoc._id;
+      }
     }
     
     if (category) {
-      filteredLocations = filteredLocations.filter(loc => loc.category === category);
+      const categoryDoc = await Category.findOne({ name: category });
+      if (categoryDoc) {
+        query.categoryId = categoryDoc._id;
+      }
     }
     
-    res.json(filteredLocations);
+    const locations = await Location.find(query)
+      .populate('categoryId', 'name')
+      .populate('eraId', 'name')
+      .populate('panoramaId');
+    
+    const enrichedLocations = locations.map(loc => ({
+      id: loc._id,
+      name: loc.name,
+      description: loc.description,
+      historicalContext: loc.historicalContext,
+      coordinates: [loc.coordinates.lat, loc.coordinates.lng],
+      icon: loc.icon,
+      image: loc.image,
+      category: loc.categoryId.name,
+      era: loc.eraId.name,
+      has3DTour: !!loc.panoramaId
+    }));
+    
+    res.json(enrichedLocations);
   } catch (error) {
     console.error('Error fetching locations:', error);
     res.status(500).json({ error: 'Failed to fetch locations' });
@@ -25,14 +49,29 @@ export const getAllLocations = async (req, res) => {
 export const getLocationById = async (req, res) => {
   try {
     const { id } = req.params;
-    const locations = await getEnrichedLocations();
-    const location = locations.find(loc => loc.id.toString() === id);
+    const location = await Location.findById(id)
+      .populate('categoryId', 'name')
+      .populate('eraId', 'name')
+      .populate('panoramaId');
     
     if (!location) {
       return res.status(404).json({ error: 'Location not found' });
     }
     
-    res.json(location);
+    const enrichedLocation = {
+      id: location._id,
+      name: location.name,
+      description: location.description,
+      historicalContext: location.historicalContext,
+      coordinates: [location.coordinates.lat, location.coordinates.lng],
+      icon: location.icon,
+      image: location.image,
+      category: location.categoryId.name,
+      era: location.eraId.name,
+      has3DTour: !!location.panoramaId
+    };
+    
+    res.json(enrichedLocation);
   } catch (error) {
     console.error('Error fetching location:', error);
     res.status(500).json({ error: 'Failed to fetch location' });
