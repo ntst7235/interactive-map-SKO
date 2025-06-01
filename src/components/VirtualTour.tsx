@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { X, ArrowLeft } from 'lucide-react';
 import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
 import { CubemapAdapter } from "@photo-sphere-viewer/cubemap-adapter";
+import { MarkersPlugin } from '@photo-sphere-viewer/markers-plugin';
 
 interface Location {
   id: string;
@@ -43,6 +44,7 @@ const VirtualTour: React.FC = () => {
   const [panoramaData, setPanoramaData] = useState<Panorama | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [viewerInstance, setViewerInstance] = useState<any>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -77,6 +79,61 @@ const VirtualTour: React.FC = () => {
       fetchData();
     }
   }, [id]);
+
+  const handleViewerReady = (instance: any) => {
+    setViewerInstance(instance);
+    const markersPlugin = instance.getPlugin(MarkersPlugin);
+    if (!markersPlugin) return;
+
+    const currentScene = panoramaData?.scenes.find(scene => scene.id === currentPanorama);
+    if (!currentScene?.hotspots) return;
+
+    markersPlugin.clearMarkers();
+
+    currentScene.hotspots.forEach(hotspot => {
+      if (hotspot.yaw !== undefined && hotspot.pitch !== undefined) {
+        markersPlugin.addMarker({
+          id: hotspot.id,
+          position: {
+            yaw: `${hotspot.yaw}deg`,
+            pitch: `${hotspot.pitch}deg`
+          },
+
+          // image: hotspot.type === 'panorama' 
+          //   ? '/icons/panorama-marker.png'
+          //   : '/icons/info-marker.png',
+
+          html: hotspot.text,
+          style: {
+              color: 'white',
+              backgroundColor: hotspot.type === 'panorama' ? '#2563eb' : '#d97706',
+              padding: '5px 10px',
+              borderRadius: '20px',
+              cursor: 'pointer'
+            },
+            
+          size: { width: 32, height: 32 },
+          anchor: 'bottom center',
+          tooltip: {
+            content: hotspot.text || '',
+            position: 'top'
+          },
+          data: hotspot
+        });
+      }
+    });
+
+    markersPlugin.addEventListener('select-marker', (e: any) => {
+      const hotspotData = e.marker.config.data;
+      handleHotspotClick(hotspotData);
+    });
+  };
+
+  useEffect(() => {
+    if (viewerInstance) {
+      handleViewerReady(viewerInstance);
+    }
+  }, [currentPanorama, viewerInstance]);
 
   if (loading) {
     return (
@@ -161,30 +218,11 @@ const VirtualTour: React.FC = () => {
             order: ['left', 'front', 'right', 'back', 'top', 'bottom'],
           }}
           keyboard={false}
+          plugins={[MarkersPlugin]}
+          onReady={handleViewerReady}
           container="div"
           defaultZoomLvl={0}
           littlePlanet={false}
-          plugins={[]}
-          markers={currentScene.hotspots.map(hotspot => ({
-            id: hotspot.id,
-            longitude: (hotspot.yaw || 0) * (Math.PI / 180),
-            latitude: (hotspot.pitch || 0) * (Math.PI / 180),
-            html: hotspot.text,
-            style: {
-              color: 'white',
-              backgroundColor: hotspot.type === 'panorama' ? '#2563eb' : '#d97706',
-              padding: '5px 10px',
-              borderRadius: '20px',
-              cursor: 'pointer'
-            },
-            content: hotspot.text,
-            data: hotspot
-          }))}
-          onClick={(_, marker) => {
-            if (marker) {
-              handleHotspotClick(marker.data);
-            }
-          }}
         />
       </div>
 
