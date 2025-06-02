@@ -90,6 +90,12 @@ const VirtualTour: React.FC = () => {
 
     markersPlugin.clearMarkers();
 
+    // Вывод координат для хотспота по клику на панораму
+    const toDeg = (rad: number) => rad * 180 / Math.PI;
+    instance.addEventListener('click', (e: any) => {
+      console.log('pitch:', toDeg(e.data.pitch), 'yaw:', toDeg(e.data.yaw));
+    });
+
     currentScene.hotspots.forEach(hotspot => {
       if (hotspot.yaw !== undefined && hotspot.pitch !== undefined) {
         markersPlugin.addMarker({
@@ -98,30 +104,52 @@ const VirtualTour: React.FC = () => {
             yaw: `${hotspot.yaw}deg`,
             pitch: `${hotspot.pitch}deg`
           },
-
-          // image: hotspot.type === 'panorama' 
-          //   ? '/icons/panorama-marker.png'
-          //   : '/icons/info-marker.png',
-
-          html: hotspot.text,
-          style: {
-              color: 'white',
-              backgroundColor: hotspot.type === 'panorama' ? '#2563eb' : '#d97706',
-              padding: '5px 10px',
-              borderRadius: '20px',
-              cursor: 'pointer'
-            },
-            
-          size: { width: 32, height: 32 },
+          // Минималистичный маркер: круглый, белый, с легкой тенью и иконкой
+          html: `
+        <div style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          pointer-events: auto;
+        ">
+          <div style="
+            background: rgba(255,255,255,0.25);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            transition: transform 0.15s;
+            border: none;
+            backdrop-filter: blur(6px) saturate(180%);
+            -webkit-backdrop-filter: blur(6px) saturate(180%);
+          ">
+            <img src="/icons/marker.svg" 
+              alt="marker" 
+              style="width: 22px; height: 22px; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.10));" />
+          </div>
+        </div>
+      `,
+          size: { width: 38, height: 50 },
           anchor: 'bottom center',
-          tooltip: {
-            content: hotspot.text || '',
-            position: 'top'
-          },
+          tooltip: false, // tooltip не нужен, т.к. есть подпись
           data: hotspot
         });
       }
     });
+    //   Подпись к маркеру
+    //     ${hotspot.text ? `<span style="
+    //   margin-top: 7px;
+    //   background: rgba(0,0,0,0.7);
+    //   color: #fff;
+    //   font-size: 13px;
+    //   padding: 2px 10px;
+    //   border-radius: 10px;
+    //   white-space: nowrap;
+    //   box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+    // ">${hotspot.text}</span>` : ''}
 
     markersPlugin.addEventListener('select-marker', (e: any) => {
       const hotspotData = e.marker.config.data;
@@ -190,6 +218,10 @@ const VirtualTour: React.FC = () => {
     }
   };
 
+  // <h1 className="text-white text-xl font-semibold">
+  //   {location.name} - {currentScene.name}
+  // </h1>
+
   return (
     <div className="h-screen w-screen bg-black relative">
       <div className="absolute top-4 left-4 z-10 flex items-center gap-4">
@@ -201,7 +233,7 @@ const VirtualTour: React.FC = () => {
           Вернуться на карту
         </button>
         <h1 className="text-white text-xl font-semibold">
-          {location.name} - {currentScene.name}
+          {location.name}
         </h1>
       </div>
 
