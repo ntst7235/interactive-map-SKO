@@ -108,15 +108,12 @@ const SiteDetailModal: React.FC<SiteDetailModalProps> = ({ site, onClose, toggle
                   <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Локация</h2>
                   <div className="bg-zinc-50 dark:bg-zinc-700 p-4 rounded-lg">
                     <p className="text-zinc-600 dark:text-zinc-400 mb-2">
-                      <strong className="text-zinc-800 dark:text-zinc-200">Регион:</strong> Greater London, United Kingdom
-                    </p>
-                    <p className="text-zinc-600 dark:text-zinc-400 mb-2">
                       <strong className="text-zinc-800 dark:text-zinc-200">Координаты:</strong><br />
                       Широта: {site.coordinates[0].toFixed(6)}<br />
                       Долгота: {site.coordinates[1].toFixed(6)}
                     </p>
                     <p className="text-zinc-600 dark:text-zinc-400">
-                      <strong className="text-zinc-800 dark:text-zinc-200">Доступ:</strong> Public access via marked footpath
+                      <strong className="text-zinc-800 dark:text-zinc-200">Доступ:</strong> Публичный
                     </p>
                   </div>
                 </section>
@@ -124,14 +121,14 @@ const SiteDetailModal: React.FC<SiteDetailModalProps> = ({ site, onClose, toggle
                 <section>
                   <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Историческая справка</h2>
                   <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    {site.historicalContext || 'This site has a rich history dating back to the early period. It was primarily used for activities, and archaeological excavations have revealed numerous artifacts and structures that provide insight into the lives of the people who inhabited this area.'}
+                    {site.historicalContext || 'Это место имеет богатую историю, восходящую к раннему периоду. Оно в основном использовалось для различной деятельности, и археологические раскопки выявили многочисленные артефакты и сооружения, которые дают представление о жизни людей, населявших эту область.'}
                   </p>
                 </section>
 
                 <section>
                   <h2 className="text-xl font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Охранный статус</h2>
                   <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    Protected as a Scheduled Ancient Monument. Regular maintenance is carried out by English Heritage.
+                    Не имеет официального охранного статуса.
                   </p>
                 </section>
               </div>
@@ -160,22 +157,22 @@ const SiteDetailModal: React.FC<SiteDetailModalProps> = ({ site, onClose, toggle
               <div className="bg-white dark:bg-zinc-800 rounded-lg shadow-lg p-6 mb-8">
                 <h2 className="text-xl font-semibold mb-4 text-zinc-800 dark:text-zinc-200">Ключевые особенности</h2>
                 <ul className="list-disc list-inside space-y-2 text-zinc-600 dark:text-zinc-400">
-                  <li>Original {site.era.toLowerCase()} architectural elements</li>
-                  <li>Well-preserved defensive structures</li>
-                  <li>Evidence of metalworking activities</li>
-                  <li>Extensive ceramic assemblages</li>
-                  <li>Ritual deposits in the eastern sector</li>
+                  <li>Историческая и культурная значимость</li>
+                  <li>Характерные архитектурные элементы эпохи</li>
+                  <li>Хорошая степень сохранности</li>
+                  <li>Доступность для посещения</li>
+                  <li>Связь с важными событиями или личностями</li>
                 </ul>
               </div>
 
               <div className="bg-white dark:bg-zinc-800 rounded-lg shadow-lg p-6">
                 <h2 className="text-xl font-semibold mb-4 text-zinc-800 dark:text-zinc-200">Информация для посетителей</h2>
                 <div className="space-y-3 text-zinc-600 dark:text-zinc-400">
-                  <p><strong className="text-zinc-800 dark:text-zinc-200">Часы работы:</strong> Dawn to dusk</p>
-                  <p><strong className="text-zinc-800 dark:text-zinc-200">Доступ:</strong> Free</p>
-                  <p><strong className="text-zinc-800 dark:text-zinc-200">Удобства:</strong> Parking, Information boards</p>
-                  <p><strong className="text-zinc-800 dark:text-zinc-200">Лучшее время для посещения:</strong> Spring and Summer months</p>
-                  <p><strong className="text-zinc-800 dark:text-zinc-200">Доступность:</strong> Moderate - some uneven terrain</p>
+                  <p><strong className="text-zinc-800 dark:text-zinc-200">Часы работы:</strong> От рассвета до заката</p>
+                  <p><strong className="text-zinc-800 dark:text-zinc-200">Доступ:</strong> Бесплатно</p>
+                  <p><strong className="text-zinc-800 dark:text-zinc-200">Удобства:</strong> Парковка, информационные стенды</p>
+                  <p><strong className="text-zinc-800 dark:text-zinc-200">Лучшее время для посещения:</strong> Весна и лето</p>
+                  <p><strong className="text-zinc-800 dark:text-zinc-200">Доступность:</strong> Средняя</p>
                 </div>
               </div>
             </div>
