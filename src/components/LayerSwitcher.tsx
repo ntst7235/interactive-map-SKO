@@ -43,6 +43,9 @@ const LayerSwitcher: React.FC<LayerSwitcherProps> = ({ currentLayer, onLayerChan
     previewMapRef.current = map;
     setIsInitialized(true);
 
+    // Исправление: форсируем пересчёт размера карты после инициализации
+    setTimeout(() => { map.invalidateSize(); }, 0);
+
     return () => {
       if (previewMapRef.current) {
         previewMapRef.current.remove();
@@ -110,8 +113,8 @@ const LayerSwitcher: React.FC<LayerSwitcherProps> = ({ currentLayer, onLayerChan
       >
         <div 
           ref={containerRef} 
-          className="layer-switcher-preview w-full h-full"
-          style={{ minHeight: '64px' }}
+          className="layer-switcher-preview"
+          style={{ minHeight: '64px', minWidth: '64px', width: '100%', height: '100%' }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-20">
           <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-40 text-white text-center py-1 text-xs font-medium">
