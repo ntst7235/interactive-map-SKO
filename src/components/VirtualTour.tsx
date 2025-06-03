@@ -52,14 +52,14 @@ const VirtualTour: React.FC = () => {
         setLoading(true);
         setError(null);
 
-        const locationResponse = await fetch(`/api/locations/${id}`);
+        const locationResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/locations/${id}`);
         if (!locationResponse.ok) {
           throw new Error('Location not found');
         }
         const locationData = await locationResponse.json();
         setLocation(locationData);
 
-        const panoramaResponse = await fetch(`/api/locations/${id}/panorama`);
+        const panoramaResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/locations/${id}/panorama`);
         if (!panoramaResponse.ok) {
           throw new Error('Panorama not found');
         }

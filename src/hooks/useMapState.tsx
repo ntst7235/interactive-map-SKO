@@ -84,7 +84,7 @@ export function useMapState() {
           queryParams.append('category', filters.category[0]);
         }
         
-        const response = await fetch(`/api/locations?${queryParams}`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/locations?${queryParams}`);
         if (!response.ok) throw new Error('Failed to fetch sites');
         
         const data = await response.json();
